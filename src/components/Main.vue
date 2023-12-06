@@ -28,7 +28,7 @@ export default {
       return i + this.ncol * (j - 1) - 1;
     },
     imagePath(x) {
-      return "/src/assets/" + x + ".png";
+      return new URL(`/src/assets/${x}.png`, import.meta.url).href;
     },
   },
 };
