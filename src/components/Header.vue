@@ -11,7 +11,7 @@
     <v-btn
       :icon="mdiGithub"
       :color="mainc"
-      class="mt-n2"
+      class="mt-n2 ml-n1"
       flat
       :href="url"
     ></v-btn>
