@@ -32,7 +32,7 @@ export default {
       fontSize: "22",
       padSize: "8",
       mdiGithub,
-      marginLeft: -100,
+      marginLeft: -140,
       url: "https://github.com/kdingn/7-days-to-end-with-you",
     };
   },
