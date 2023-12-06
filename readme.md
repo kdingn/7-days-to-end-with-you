@@ -4,4 +4,4 @@ Translator of words written by original language in [7 Days to End with You](htt
 *⚠ There are no gurantees for the results.*
 
 ## Webpage link
-https://...
+https://kdingn.github.io/7-days-to-end-with-you/
