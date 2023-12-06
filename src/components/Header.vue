@@ -5,7 +5,6 @@
       'font-size': fontSize + 'px',
       color: backc,
       padding: padSize + 'px',
-      'margin-left': marginLeft + 'px',
     }"
     class="d-flex justify-center"
   >

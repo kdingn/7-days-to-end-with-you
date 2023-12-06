@@ -1,19 +1,19 @@
 <template>
   <div class="d-flex justify-center my-2">
-    <v-card :width="cardSize" :height="imgSize * 0.8">
+    <v-card :width="cardSize" :height="imgSize * 0.7">
       <div class="mx-1">
         <v-row class="ml-0">
           <div v-for="n in nlist" :key="n + 'list'">
             <img
               :src="imagePath(idxn(n))"
-              :width="imgSize * 0.6"
+              :width="imgSize * 0.5"
               class="mt-5 mb-3 ml-2"
             />
           </div>
           <v-spacer />
           <v-btn
             :icon="mdiChevronLeft"
-            class="mt-5 mr-2"
+            class="mt-4 mr-2"
             variant="text"
             @click="reduceNlist"
           ></v-btn>
