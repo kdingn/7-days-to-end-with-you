@@ -1,4 +1,25 @@
 <template>
+  <div class="d-flex justify-center my-2">
+    <v-card :width="cardSize" :height="imgSize * 0.8">
+      <div class="mx-1">
+        <v-row class="ml-0">
+          <div v-for="n in nlist" :key="n + 'list'">
+            <img
+              :src="imagePath(idxn(n))"
+              :width="imgSize * 0.6"
+              class="mt-5 mb-3 ml-2"
+            />
+          </div>
+          <v-spacer />
+          <v-btn
+            :icon="mdiChevronLeft"
+            class="mt-5 mr-2"
+            variant="text"
+            @click="reduceNlist"
+          ></v-btn>
+        </v-row></div
+    ></v-card>
+  </div>
   <div class="d-flex justify-center">
     <v-card :width="cardSize">
       <v-row class="d-flex justify-center my-2">
@@ -6,11 +27,8 @@
           <img
             :src="imagePath(idxn(n))"
             :width="imgSize"
-            style="
-               {
-                border: solid;
-              }
-            "
+            @click="addNlist(n)"
+            class="shadow"
           />
         </div>
       </v-row>
@@ -19,12 +37,16 @@
 </template>
 
 <script>
+import { mdiChevronLeft } from "@mdi/js";
+
 export default {
   data() {
     return {
       nalphabet: 26,
       imgSize: 80,
       cardSize: 550,
+      mdiChevronLeft,
+      nlist: [10, 12, 25, 8],
     };
   },
   methods: {
@@ -34,6 +56,20 @@ export default {
     imagePath(x) {
       return new URL(`/src/assets/${x}.png`, import.meta.url).href;
     },
+    addNlist(x) {
+      if (this.nlist.length < 8) {
+        this.nlist.push(x);
+      }
+    },
+    reduceNlist() {
+      this.nlist.pop();
+    },
   },
 };
 </script>
+
+<style>
+.shadow {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+</style>
