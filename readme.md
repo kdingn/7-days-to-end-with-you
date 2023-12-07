@@ -1,12 +1,12 @@
-## ⚠ SPOILER ALERT for 7 Days to End with You
+## ⚠ SPOILER ALERT for [7 Days to End with You](https://playism.com/game/7daystoendwithyou/)
 
 ## 💡 What is this?
-Translator of words written by original language in [7 Days to End with You](https://playism.com/game/7daystoendwithyou/). The algorithm is based on simple rule related with the order of alphabets.
+Translator of words written by original language in "7 Days to End with You". The algorithm is based on simple rule related with the order of alphabets.
 
-*⚠ There are no gurantees for the results.*
+*There are no gurantees for the results.*
 
-## ⭐ Webapp
+## 🌏 Webapp
 https://kdingn.github.io/7-days-to-end-with-you/
 
-## Thanks to...
+## ☕ Thanks to...
 [Free Dictionary API](https://dictionaryapi.dev/)
