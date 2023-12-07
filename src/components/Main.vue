@@ -96,7 +96,7 @@ export default {
       for (let i = 2; i < 9; i++) {
         let word = this.nlist
           .map((x) => {
-            if (x - i > 0) {
+            if (x - i >= 0) {
               return this.alphabets[x - i];
             } else {
               return this.alphabets[x - i + 25];
