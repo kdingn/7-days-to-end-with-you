@@ -6,12 +6,12 @@
       color: backc,
       padding: padSize + 'px',
     }"
-    class="d-flex justify-center"
+    class="d-flex justify-center ml-n4"
   >
     <v-btn
       :icon="mdiGithub"
       :color="mainc"
-      class="mt-n2 ml-n1"
+      class="mt-n2"
       flat
       :href="url"
     ></v-btn>
@@ -31,7 +31,6 @@ export default {
       fontSize: "22",
       padSize: "8",
       mdiGithub,
-      marginLeft: -140,
       url: "https://github.com/kdingn/7-days-to-end-with-you",
     };
   },

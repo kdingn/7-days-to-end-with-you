@@ -20,6 +20,13 @@
         </v-row></div
     ></v-card>
   </div>
+  <div class="d-flex justify-center mb-2">
+    <v-card :width="cardSize" :min-height="imgSize * 0.35">
+      <div class="d-flex justify-center">
+        {{ translated.join(" / ") }}
+      </div>
+    </v-card>
+  </div>
   <div class="d-flex justify-center">
     <v-card :width="cardSize">
       <v-row class="d-flex justify-center my-2">
@@ -47,6 +54,7 @@ export default {
       cardSize: 550,
       mdiChevronLeft,
       nlist: [10, 12, 25, 8],
+      alphabets: [..."abcdefghijklmnopqrstuvwxyz"],
     };
   },
   methods: {
@@ -57,12 +65,31 @@ export default {
       return new URL(`/src/assets/${x}.png`, import.meta.url).href;
     },
     addNlist(x) {
-      if (this.nlist.length < 8) {
+      if (this.nlist.length < 10) {
         this.nlist.push(x);
       }
     },
     reduceNlist() {
       this.nlist.pop();
+    },
+  },
+  computed: {
+    translated() {
+      let numTranslated = [];
+      for (let i = 2; i < 9; i++) {
+        numTranslated.push(
+          this.nlist
+            .map((x) => {
+              if (x - i > 0) {
+                return this.alphabets[x - i];
+              } else {
+                return this.alphabets[x - i + 25];
+              }
+            })
+            .join("")
+        );
+      }
+      return numTranslated;
     },
   },
 };
