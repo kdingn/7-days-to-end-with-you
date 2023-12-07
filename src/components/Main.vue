@@ -23,14 +23,20 @@
   <div class="d-flex justify-center mb-2">
     <v-card :width="cardSize" :min-height="imgSize * 0.35">
       <div class="d-flex justify-center">
-        {{ translated.join(", ") }}
+        <div v-for="i in 7" :key="i + 'word'">
+          <span v-if="nword[i - 1]" class="text-orange-darken-4">
+            {{ translated[i - 1] }}
+          </span>
+          <span v-else>{{ translated[i - 1] }}</span>
+          <span v-if="i != 7">,&nbsp;</span>
+        </div>
       </div>
     </v-card>
   </div>
   <div class="d-flex justify-center">
     <v-card :width="cardSize">
       <v-row class="d-flex justify-center my-2">
-        <div v-for="n in nalphabet" :key="n" class="mx-1">
+        <div v-for="n in nalphabet" :key="n + 'char'" class="mx-1">
           <img
             :src="imagePath(idxn(n))"
             :width="imgSize"
@@ -46,6 +52,16 @@
 <script>
 import { mdiChevronLeft } from "@mdi/js";
 
+let initialNword = {
+  0: false,
+  1: false,
+  2: false,
+  3: false,
+  4: false,
+  5: false,
+  6: false,
+};
+
 export default {
   data() {
     return {
@@ -55,6 +71,7 @@ export default {
       mdiChevronLeft,
       nlist: [10, 12, 25, 8],
       alphabets: [..."abcdefghijklmnopqrstuvwxyz"],
+      nword: initialNword,
     };
   },
   methods: {
@@ -77,16 +94,24 @@ export default {
     translated() {
       let numTranslated = [];
       for (let i = 2; i < 9; i++) {
-        numTranslated.push(
-          this.nlist
-            .map((x) => {
-              if (x - i > 0) {
-                return this.alphabets[x - i];
-              } else {
-                return this.alphabets[x - i + 25];
-              }
-            })
-            .join("")
+        let word = this.nlist
+          .map((x) => {
+            if (x - i > 0) {
+              return this.alphabets[x - i];
+            } else {
+              return this.alphabets[x - i + 25];
+            }
+          })
+          .join("");
+        numTranslated.push(word);
+        fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`).then(
+          (response) => {
+            if (response.status == 200) {
+              this.nword[i - 2] = true;
+            } else {
+              this.nword[i - 2] = false;
+            }
+          }
         );
       }
       return numTranslated;
