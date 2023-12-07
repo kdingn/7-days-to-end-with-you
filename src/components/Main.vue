@@ -23,7 +23,7 @@
   <div class="d-flex justify-center mb-2">
     <v-card :width="cardSize" :min-height="imgSize * 0.35">
       <div class="d-flex justify-center">
-        {{ translated.join(" / ") }}
+        {{ translated.join(", ") }}
       </div>
     </v-card>
   </div>

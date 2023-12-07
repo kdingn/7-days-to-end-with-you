@@ -8,14 +8,16 @@
     }"
     class="d-flex justify-center ml-n4"
   >
-    <v-btn
-      :icon="mdiGithub"
-      :color="mainc"
-      class="mt-n2"
-      flat
-      :href="url"
-    ></v-btn>
-    {{ title }}
+    <div class="mb-n1">
+      <v-btn
+        :icon="mdiGithub"
+        :color="mainc"
+        class="mt-n1 mr-n2"
+        flat
+        :href="url"
+      ></v-btn>
+      {{ title }}
+    </div>
   </div>
 </template>
 
