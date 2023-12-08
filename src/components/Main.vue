@@ -104,15 +104,19 @@ export default {
           })
           .join("");
         numTranslated.push(word);
-        fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`).then(
-          (response) => {
-            if (response.status == 200) {
-              this.nword[i - 2] = true;
-            } else {
-              this.nword[i - 2] = false;
+        if (word.length > 3) {
+          fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`).then(
+            (response) => {
+              if (response.status == 200) {
+                this.nword[i - 2] = true;
+              } else {
+                this.nword[i - 2] = false;
+              }
             }
-          }
-        );
+          );
+        } else {
+          this.nword[i - 2] = false;
+        }
       }
       return numTranslated;
     },
